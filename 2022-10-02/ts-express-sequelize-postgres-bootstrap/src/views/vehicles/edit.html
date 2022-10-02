@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Szerver oldali JavaScript programozás</title>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h1>Jármű <span id="vehicleId"></span> módosítása</h1>
+      <form method="post">
+        <input type="hidden" name="id" id="id">
+        <div class="mb-3">
+          <label for="brand">Márka</label>
+          <input type="text" name="brand" id="brand" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="model">Modell</label>
+          <input type="text" name="model" id="model" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="color">Szín</label>
+          <input type="text" name="color" id="color" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Mentés</button>
+        <a href="/vehicles" class="btn btn-secondary">Mégse</a>
+      </form>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+      $(document).ready(() => {
+        let id = location.pathname.split('/')[3];
+        $('span#vehicleId').text(id);
+        loadSingleVehicle(id);
+      });
+    </script>
+  </body>
+</html>

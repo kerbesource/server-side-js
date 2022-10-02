@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Szerver oldali JavaScript programozás</title>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h1>Új jármű</h1>
+      <form method="post">
+        <div class="mb-3">
+          <label for="brand">Márka</label>
+          <input type="text" name="brand" id="brand" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="model">Modell</label>
+          <input type="text" name="model" id="model" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="color">Szín</label>
+          <input type="text" name="color" id="color" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Létrehozás</button>
+        <a href="/vehicles" class="btn btn-secondary">Mégse</a>
+      </form>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+  </body>
+</html>

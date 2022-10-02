@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "37206d31-deec-47ea-8eb0-04fd3da36a4c",
+		"name": "ts-express-sequelize-postgres-bootstrap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19470792"
+	},
+	"item": [
+		{
+			"name": "api/vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/vehicles/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/vehicles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/vehicles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\": \"Volkswagen\",\r\n    \"model\": \"Golf V\",\r\n    \"color\": \"Light grey\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/vehicles/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\": \"Mercedes\",\r\n    \"model\": \"B200 D\",\r\n    \"color\": \"Dark grey\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/vehicles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/vehicles/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/vehicles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/vehicles/restore/:id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/vehicles/restore/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"vehicles",
+						"restore",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
