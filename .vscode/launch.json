@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\2022-09-16\\debug-nodejs\\src\\currency.js"
+            "program": "${workspaceFolder}\\2022-10-21\\build-node-cosmos-app-vscode\\app.js"
         }
     ]
 }
