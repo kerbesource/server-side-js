@@ -10,7 +10,11 @@ export default class Routes {
 
         const controller = new Controller();
 
-        this.router.get('/', controller.index);
+        this.router.get('/identify', controller.identify);
+        this.router.post('/subscribe', controller.subscribe);
+        this.router.post('/unsubscribe', controller.unsubscribe);
+        this.router.get('/status', controller.status);
+        this.router.post('/adjust', controller.adjust);
     }
 
     getRoutes(): Router {

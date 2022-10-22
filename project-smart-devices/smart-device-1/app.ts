@@ -1,19 +1,31 @@
+import axios from 'axios';
 import express from 'express';
-import { Cron } from './src/services/CronService';
-import { Env } from './src/system/Environment';
+import cron from 'node-cron';
 import Routes from './src/routes/Routes';
-import SensorService from './src/services/SensorService';
+import { Env } from './src/system/Environment';
+import { Service as SensorService, SensorMeasurement } from './src/services/SensorService';
+import { Service as SubscriptionService, Subscription } from './src/services/SubscriptionService';
 
 const server = express();
-const routes = new Routes();
-
 server.use(express.json());
-server.use(routes.getRoutes());
 
-const service = new SensorService();
+const sensorService = SensorService;
+const subscriptionService = SubscriptionService;
 
-service.init().then(() => {
-    Cron.add(Env.SENSOR_SERVICE_CRON as string, () => service.activate());
+sensorService.init().then(() => {
+    subscriptionService.init().then(() => {
+        cron.schedule(Env.SENSOR_CRON as string, () => {
+            sensorService.activate().then((measurement: SensorMeasurement) => {
+                console.log(measurement);
+                subscriptionService.forEach((subscription: Subscription) => {
+                    axios.post(subscription.consumerEndpoint, measurement).catch((err) => console.error(err));
+                });
+            });
+        });
+    });
 });
+
+const routes = new Routes();
+server.use(routes.getRoutes());
 
 server.listen(Env.SMARTDEV1_PORT, () => console.log(`Smart Device 1 is listening on port ${Env.SMARTDEV1_PORT}`));
