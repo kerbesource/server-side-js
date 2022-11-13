@@ -4,8 +4,8 @@ import { Service as SubscriptionService, Subscription } from '../services/Subscr
 
 interface DeviceManifest {
     deviceId: string,
-    deviceName: string,
-    deviceType: string
+    deviceType: string,
+    deviceName: string
 }
 
 export default class Controller {
@@ -14,8 +14,8 @@ export default class Controller {
     constructor() {
         this.manifest = {
             deviceId: '97f36c4d-2ec6-4f48-8cb4-50cdd055a5f1',
-            deviceName: 'Thermostat',
-            deviceType: 'thermostat'
+            deviceType: 'thermostat',
+            deviceName: 'Thermostat 1'
         };
     }
 
@@ -42,9 +42,9 @@ export default class Controller {
         res.send(SensorService.getStatus());
         next();
     };
-
+    
     public adjust = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
-        const newThreshold = req.body.threshold as number;
+        const newThreshold = parseInt(req.body.threshold);
         SensorService.adjustThreshold(newThreshold);
         res.send({ success: true });
         next();

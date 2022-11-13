@@ -34,15 +34,15 @@ class Controller {
             next();
         });
         this.adjust = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
-            const newThreshold = req.body.threshold;
+            const newThreshold = parseInt(req.body.threshold);
             SensorService_1.Service.adjustThreshold(newThreshold);
             res.send({ success: true });
             next();
         });
         this.manifest = {
             deviceId: '97f36c4d-2ec6-4f48-8cb4-50cdd055a5f1',
-            deviceName: 'Thermostat',
-            deviceType: 'thermostat'
+            deviceType: 'thermostat',
+            deviceName: 'Thermostat 1'
         };
     }
 }

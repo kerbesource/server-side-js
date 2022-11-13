@@ -49,7 +49,9 @@ class SensorService {
     }
 
     public adjustThreshold(newThreshold: number): void {
-        this.thermostat.temperatureThreshold = newThreshold;
+        if (typeof newThreshold === 'number') {
+            this.thermostat.temperatureThreshold = newThreshold;
+        }
     }
 
     private measure(): void {

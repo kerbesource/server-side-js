@@ -13,7 +13,11 @@ export default class Routes {
         const apiController = new ApiController();
 
         this.router.get('/', viewController.index);
-        this.router.get('/api', apiController.index);
+        this.router.post('/connect', viewController.connect);
+        this.router.post('/disconnect/:deviceId', viewController.disconnect);
+        this.router.post('/adjustThermostat/:deviceId', viewController.adjustThermostat);
+        this.router.post('/adjustBulb/:deviceId', viewController.adjustBulb);
+        this.router.post('/api/report/:deviceId', apiController.report);
     }
 
     getRoutes(): Router {

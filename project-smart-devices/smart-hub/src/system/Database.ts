@@ -5,26 +5,29 @@ class DatabaseConnection {
     private mongoClient: MongoClient;
     private mongoDb: Db;
 
-    constructor() {
+    public init(): Promise<void> {
         this.mongoClient = new MongoClient(Env.MONGODB_CONNECTION_STRING as string);
-
         this.mongoClient.connect().then((mongoClient: MongoClient) => {
             this.mongoDb = this.mongoClient.db(Env.MONGODB_DATABASE);
+
+            try {
+                const reportsCollection = this.mongoDb.collection('reports')
+            }
+            catch {
+                this.mongoDb.createCollection('reports');
+            }
         }).catch((err) => {
             console.error(err);
             process.exit(1);
         });
+        return Promise.resolve();
     }
 
-    getMongoClient(): MongoClient {
-        return this.mongoClient;
-    }
-
-    getDb(): Db {
+    public getDb(): Db {
         return this.mongoDb;
     }
 }
 
-const Database = new DatabaseConnection().getDb();
+const Database = new DatabaseConnection();
 
 export { Database };

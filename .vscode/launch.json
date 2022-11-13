@@ -7,11 +7,35 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Smart Device 1",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\2022-10-21\\build-node-cosmos-app-vscode\\app.js"
+            "program": "${workspaceFolder}\\project-smart-devices\\smart-device-1\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Smart Device 2",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\project-smart-devices\\smart-device-2\\app.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Smart Hub",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\project-smart-devices\\smart-hub\\app.js"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Project Smart Devices",
+            "configurations": ["Smart Device 1", "Smart Device 2", "Smart Hub"]
         }
     ]
 }

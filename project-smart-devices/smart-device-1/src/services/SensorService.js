@@ -28,7 +28,9 @@ class SensorService {
         };
     }
     adjustThreshold(newThreshold) {
-        this.thermostat.temperatureThreshold = newThreshold;
+        if (typeof newThreshold === 'number') {
+            this.thermostat.temperatureThreshold = newThreshold;
+        }
     }
     measure() {
         this.measurement.previousValue = this.measurement.currentValue;
